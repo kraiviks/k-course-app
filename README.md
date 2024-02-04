@@ -1,4 +1,4 @@
-# course-app
+# k-course-app
 
 ## To clone
 

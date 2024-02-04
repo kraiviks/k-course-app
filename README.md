@@ -5,7 +5,7 @@
 - You'll need to have [git](https://git-scm.com/), [node v18.11+](https://nodejs.org/en/) and [docker](https://www.docker.com/) installed in
   your system.
 
-`git clone https://github.com/kraiviks/course-app.git`
+`git clone https://github.com/kraiviks/k-course-app.git`
 
 ## Run the project
 

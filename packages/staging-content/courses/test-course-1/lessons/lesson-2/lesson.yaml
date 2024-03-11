@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../../../../content-schema/main/schemas/lesson.schema.json
+id: "test-course-1_lesson-2"
+title: "Video lesson"
+shortDescription: |
+  It's an open question.
+
+  Some text
+
+blocks:
+  - type: "text"
+    id: "test-course-1_lesson-2_block-1"
+    text: |
+
+      <Player url="https://www.youtube.com/watch?v=8mAITcNt710" />
+
+      ## What we're going to study today
+
+      It's an open question.
+      Some text
+
+  - type: "text"
+    id: "test-course-1_lesson-2_block-2"
+    text: |
+      ## Introduction to Advanced Python Programming
+
+      In this section, we'll dive into advanced Python programming topics, including:
+      - OOP (Object Oriented Programming)
+      - Working with databases
+      - Multithreading and asynchronous programming
+
+  - type: "text"
+    id: "test-course-1_lesson-2_block-3"
+    text: |
+      ## Introduction to Advanced Python Programming
+
+      In this section, we'll dive into advanced Python programming topics, including:
+      - OOP (Object Oriented Programming)
+      - Working with databases
+      - Multithreading and asynchronous programming

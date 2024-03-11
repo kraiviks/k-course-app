@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../../schemas/course.schema.json
+
+id: "{cuid}"
+thumbnail: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png"
+dependencies:
+  - "test-course-2"
+title: "Test course"
+description: |
+  ## Course the best
+  - 1
+  - 2 
+  - [3](https://google.com)
+lessons:
+  - "lesson-1"

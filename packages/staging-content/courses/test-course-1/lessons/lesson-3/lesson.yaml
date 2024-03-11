@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../../../../content-schema/main/schemas/lesson.schema.json
+id: "test-course-1_lesson-3"
+title: "A lesson in code"
+shortDescription: |
+  It's an open question.
+
+  Some text
+
+blocks:
+  - type: "text"
+    id: "test-course0_lesson-3_block-1"
+    text: |
+
+      <Sandpack 
+        template="react"
+        files={{
+          "/App.js": `export default function App() {
+          return <h1>Hello Sandpack</h1>
+      }`,
+        }}
+      />
+
+      ## What we're going to study today
+
+      It's an open question.
+      Some text

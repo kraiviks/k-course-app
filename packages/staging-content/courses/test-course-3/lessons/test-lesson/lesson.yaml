@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=../../../../../content-schema/main/schemas/lesson.schema.json
+id: "test-course-3_test-lesson"
+title: "Advanced Python Programming 2"
+blocks:
+  - type: "text"
+    id: "test-course-3_test-lesson_block-1"
+    text: |
+
+      <img width="50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/1280px-Python_logo_and_wordmark.svg.png"/>
+
+      ## What we're going to study today
+
+      It's an open question.
+      Some text
+
+  - type: "text"
+    id: "test-course-3_test-lesson_block-2"
+    text: |
+      ## Introduction to Advanced Python Programming
+
+      In this section, we'll dive into advanced Python programming topics, including:
+      - OOP (Object Oriented Programming)
+      - Working with databases
+      - Multithreading and asynchronous programming

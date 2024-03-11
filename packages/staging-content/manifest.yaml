@@ -1,0 +1,5 @@
+# yaml-language-server: $schema=../content-schema/main/schemas/manifest.schema.json
+courses:
+  - "test-course-1"
+  - "test-course-2"
+  - "test-course-3"

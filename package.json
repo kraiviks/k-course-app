@@ -1,6 +1,7 @@
 {
-  "name": "k-cource-app",
+  "name": "core",
   "version": "1.0.0",
+  "workspaces": ["./packages/*"],
   "private": true,
   "scripts": {
     "postinstall": "patch-package",
@@ -12,7 +13,8 @@
     "test": "jest",
     "prettier": "prettier -w .",
     "test:e2e": "npx prisma migrate reset --force && playwright test",
-    "upload-content-schema": "ts-node --project tsconfig.script.json ./scripts/upload-content-schema https://raw.githubusercontent.com/micro-course/content-schema/main/schemas/ ./src/shared/api/content/schemas"
+    "upload-content-schema": "ts-node --project tsconfig.script.json ./scripts/upload-content-schema packages/content-schema/schemas/ ./src/shared/api/content/schemas",
+    "dev:content-schema": "npm run dev --workspace=@core/content-schema"
   },
   "prisma": {
     "seed": "ts-node --project tsconfig.script.json prisma/seed.ts"

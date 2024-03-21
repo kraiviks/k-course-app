@@ -1,7 +1,9 @@
 {
   "name": "core",
   "version": "1.0.0",
-  "workspaces": ["./packages/*"],
+  "workspaces": [
+    "./packages/*"
+  ],
   "private": true,
   "scripts": {
     "postinstall": "patch-package",
@@ -13,7 +15,7 @@
     "test": "jest",
     "prettier": "prettier -w .",
     "test:e2e": "npx prisma migrate reset --force && playwright test",
-    "upload-content-schema": "ts-node --project tsconfig.script.json ./scripts/upload-content-schema packages/content-schema/schemas/ ./src/shared/api/content/schemas",
+    "upload-content-schema": "ts-node --project tsconfig.script.json ./scripts/upload-content-schema packages/content-schema/schemas/ ./src/shared/api/content/_schemas",
     "dev:content-schema": "npm run dev --workspace=@core/content-schema"
   },
   "prisma": {
@@ -32,7 +34,11 @@
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
     "@sentry/nextjs": "^7.84.0",
-    "@tanstack/react-query": "^5.17.9",
+    "@tanstack/react-query": "^5.28.4",
+    "@trpc/client": "^11.0.0-next-beta.318",
+    "@trpc/next": "^11.0.0-next-beta.318",
+    "@trpc/react-query": "^11.0.0-next-beta.318",
+    "@trpc/server": "^11.0.0-next-beta.318",
     "ajv": "^8.12.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",

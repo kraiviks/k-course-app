@@ -28,7 +28,7 @@ export function AvatarField({
       )}
       <ProfileAvatar
         className="w-full h-full"
-        profile={{ email: "kostiv.serhii@gmail.com", image: value }}
+        profile={{ email: "arthurvoloshyn@gmail.com", image: value }}
       />
     </Button>
   );

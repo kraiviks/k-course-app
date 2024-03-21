@@ -8,7 +8,7 @@ async function convertSchemaToType(file: string): Promise<void> {
     const ts: string = await compileFromFile(file);
     fs.writeFileSync(
       path.join(path.dirname(file), path.basename(file, ".json") + ".d.ts"),
-      ts
+      ts,
     );
     console.log(`Converted: ${file}`);
   } catch (error) {

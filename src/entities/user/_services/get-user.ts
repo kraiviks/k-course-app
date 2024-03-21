@@ -1,15 +1,15 @@
-import { SessionEntity, UserEntity, UserId } from "../_domain/types";
 import { userRepository } from "../_repositories/user";
 import { createUserAbility } from "../_domain/ability";
 import { AuthorizationError } from "@/shared/lib/errors";
+import { UserId, SharedSession, SharedUser } from "@/kernel/domain/user";
 
 type GetUser = {
   userId: UserId;
-  session: SessionEntity;
+  session: SharedSession;
 };
 
-export class GetUserUseCase {
-  async exec({ userId, session }: GetUser): Promise<UserEntity> {
+export class GetUserService {
+  async exec({ userId, session }: GetUser): Promise<SharedUser> {
     const userAbility = createUserAbility(session);
 
     if (!userAbility.canGetUser(userId)) {
@@ -20,4 +20,4 @@ export class GetUserUseCase {
   }
 }
 
-export const getUserUseCase = new GetUserUseCase();
+export const getUserService = new GetUserService();

@@ -34,14 +34,14 @@ const checkIds = (obj: any, context: string, path = "") => {
     if (obj.id) {
       if (ids.has(obj.id)) {
         console.error(
-          `Duplicate ID found: ${obj.id} in ${context} path: ${path}`
+          `Duplicate ID found: ${obj.id} in ${context} path: ${path}`,
         );
       } else {
         ids.add(obj.id);
       }
     }
     Object.entries(obj).forEach(([key, value]) =>
-      checkIds(value, `${path}.${key}`, context)
+      checkIds(value, `${path}.${key}`, context),
     );
   }
 };
@@ -51,23 +51,23 @@ const checkIds = (obj: any, context: string, path = "") => {
 const lessonSchema = JSON.parse(
   fs.readFileSync(path.resolve(__dirname, "../schemas/lesson.schema.json"), {
     encoding: "utf8",
-  })
+  }),
 );
 const courseSchema = JSON.parse(
   fs.readFileSync(path.resolve(__dirname, "../schemas/course.schema.json"), {
     encoding: "utf8",
-  })
+  }),
 );
 const manifestSchema = JSON.parse(
   fs.readFileSync(path.resolve(__dirname, "../schemas/manifest.schema.json"), {
     encoding: "utf8",
-  })
+  }),
 );
 
 async function validateLesson(file: string) {
   const lesson = await contentParser.parse<Lesson>(
     fs.readFileSync(file, "utf8"),
-    lessonSchema
+    lessonSchema,
   );
 
   checkIds(lesson, file);
@@ -77,7 +77,7 @@ async function validateLesson(file: string) {
 async function validateCourse(file: string) {
   const course = await contentParser.parse<Course>(
     fs.readFileSync(file, "utf8"),
-    courseSchema
+    courseSchema,
   );
   checkIds(course, file);
   return course;
@@ -86,7 +86,7 @@ async function validateCourse(file: string) {
 async function validateManifest(file: string) {
   const manifest = await contentParser.parse<Manifest>(
     fs.readFileSync(file, "utf8"),
-    manifestSchema
+    manifestSchema,
   );
   return manifest;
 }
@@ -98,12 +98,12 @@ async function scanDirectory(directoryPath: string) {
 
   for (const coursePath of manifest.courses) {
     const course = await validateCourse(
-      `${directoryPath}/courses/${coursePath}/course.yaml`
+      `${directoryPath}/courses/${coursePath}/course.yaml`,
     );
 
     for (const lessonPath of course.lessons) {
       await validateLesson(
-        `${directoryPath}/courses/${coursePath}/lessons/${lessonPath}/lesson.yaml`
+        `${directoryPath}/courses/${coursePath}/lessons/${lessonPath}/lesson.yaml`,
       );
     }
   }

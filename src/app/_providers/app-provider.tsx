@@ -25,6 +25,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   return (
     <ComposeChildren>
       <sharedApi.Provider client={trpcClient} queryClient={queryClient}>
+        {/* If not moving the provider to a separate component, trpcClient requires the required children property, we need to pass it, but further trpcClient overwrites it via compose children. */}
         <></>
       </sharedApi.Provider>
       <QueryClientProvider client={queryClient} />

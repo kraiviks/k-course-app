@@ -1,14 +1,14 @@
 "use client";
 import { CourseEntity } from "@/entities/course/course";
 import { CourseItem } from "./course-item";
-import { coursesListApi } from "../api";
+import { courseListApi } from "../_api";
 
-export function CoursesListClient({
+export function CourseListClient({
   defaultList,
 }: {
   defaultList: CourseEntity[];
 }) {
-  const { data: coursesList } = coursesListApi.courseList.get.useQuery(
+  const { data: courseList } = courseListApi.courseList.get.useQuery(
     undefined,
     {
       initialData: defaultList,
@@ -17,7 +17,7 @@ export function CoursesListClient({
 
   return (
     <div className="flex flex-col gap-3">
-      {coursesList.map((course) => (
+      {courseList.map((course) => (
         <CourseItem key={course.id} course={course} />
       ))}
     </div>

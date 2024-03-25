@@ -3,6 +3,12 @@ import { getAppSessionServer } from "../next-auth/server";
 import { SharedSession } from "@/kernel/domain/user";
 import { ZodTypeAny, z } from "zod";
 import { createServerSideHelpers } from "@trpc/react-query/server";
+import { injectable } from "inversify";
+
+@injectable()
+export abstract class Controller {
+  abstract router: AnyRouter;
+}
 
 export const createContext = async () => {
   const session = await getAppSessionServer();
@@ -81,4 +87,4 @@ export const createPublicServerApi = <T extends AnyRouter>(router: T) =>
   createServerSideHelpers<T>({
     router: router,
     ctx: () => ({}),
-  } as any);
+  } as any); // The signature is correct, the type problem is due to a peculiarity of tRPC typing.

@@ -1,12 +1,25 @@
-import { coursesListController } from "@/features/courses-list/controller";
-import { createContext, sharedRouter, t } from "@/kernel/lib/trpc/server";
+import "reflect-metadata";
+
+import {
+  Controller,
+  createContext,
+  sharedRouter,
+  t,
+} from "@/kernel/lib/trpc/server";
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
+import { init } from "@/app/_init";
+
+const container = init();
+
+const routers = container
+  .getAll(Controller)
+  .map((controller) => controller.router);
 
 const handler = (req: Request) =>
   fetchRequestHandler({
     endpoint: "/api/trpc",
     req,
-    router: t.mergeRouters(sharedRouter, coursesListController),
+    router: t.mergeRouters(sharedRouter, ...routers),
     createContext: createContext,
   });
 

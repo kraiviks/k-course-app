@@ -2,8 +2,11 @@ import { cache } from "react";
 import { CourseEntity } from "../_domain/types";
 import { contentApi } from "@/shared/api/content";
 import { logger } from "@/shared/lib/logger";
-class CoursesRepository {
-  getCoursesList = cache(async (): Promise<CourseEntity[]> => {
+import { injectable } from "inversify";
+
+@injectable()
+export class CoursesRepository {
+  getCourseList = cache(async (): Promise<CourseEntity[]> => {
     const manifest = await contentApi.fetchManifest();
 
     const fetchCourse = async (courseSlug: string): Promise<CourseEntity> => {
@@ -41,5 +44,3 @@ class CoursesRepository {
       });
   });
 }
-
-export const coursesRepository = new CoursesRepository();

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "reactflow/dist/style.css";
 import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/shared/ui/utils";
 import { AppProvider } from "./_providers/app-provider";
+import { Toaster } from "@/shared/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,11 +25,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-background font-sans antialiased flex flex-col",
           fontSans.variable,
         )}
       >
         <AppProvider>{children}</AppProvider>
+        <Toaster />
       </body>
     </html>
   );

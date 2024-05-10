@@ -4,11 +4,20 @@ const nextConfig = {
     serverActions: {
       allowedOrigins: [
         "localhost:3000",
-        "staging.course-app.com",
-        "course-app.com",
+        "staging.yourdomain.com",
+        "yourdomain.com",
       ],
     },
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
+  },
+
   rewrites: () => [
     {
       source: "/storage/:path*",
